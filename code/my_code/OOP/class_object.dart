@@ -110,7 +110,7 @@ class Airplane with Fly {}
 // extends A implements B	Best combo
 
 class A {
-  String name;
+  String? name;
   A(this.name);
   void x() {
     print("x");
@@ -126,20 +126,21 @@ class B {
 }
 
 class C extends A implements B {
-  C(String name) : super(name);
+  @override
+  String type;      // <-- Declare field first
+
+  C(String name, this.type) : super(name);
 
   @override
   void y() {
     print("y y");
   }
 
-  @override
-  String type;
-
   void z() {
     print("z");
   }
 }
+
 
 //11. Abstract Classes (cannot be instantiated)
 // You want to force child classes to implement some methods.
